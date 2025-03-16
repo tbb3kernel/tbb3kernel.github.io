@@ -1,0 +1,128 @@
+/* 
+    style.css - Stylesheet for Metee Yingyongwatthanakit's Personal Website
+
+    Table of Contents:
+    1. Global Styles (Body, basic typography)
+    2. Card Layout
+    3. Hero Section
+    4. Blog List
+    5. Footer
+    6. Responsive Adjustments
+*/
+
+/* 1. Global Styles */
+body {
+	font-family: "Roboto", sans-serif; /* Use Roboto, fall back to sans-serif */
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+/* 2. Card Layout (Reusable container for sections) */
+.card {
+	background-color: white;
+	margin: 20px;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 3. Hero Section (Profile image and introduction) */
+.hero {
+	display: flex;
+	align-items: center; /* Vertical alignment */
+	justify-content: center; /* Horizontal alignment */
+	flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+#profile-image-hero {
+	width: auto;
+	margin-right: 20px;
+	max-width: 200px;
+}
+
+.profile-img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%; /* Circular image */
+	object-fit: cover; /* Maintain aspect ratio and fill the circle */
+	display: block;
+	margin: 0 auto;
+}
+
+#profile-text-hero {
+	text-align: center;
+}
+
+#profile-text-hero h1 {
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+}
+
+#profile-text-hero h2 {
+	font-size: 1.5em;
+	color: #555;
+	margin-bottom: 1em;
+}
+
+.social-links a {
+	margin: 0 10px;
+	color: #0077b5;
+	text-decoration: none;
+}
+
+.social-links a:hover {
+	text-decoration: underline;
+}
+
+/* 4. Horizontal Splitter (Visual separation between sections) */
+.horizontal-splitter {
+	height: 1px;
+	background-color: #ddd;
+	margin: 20px 0;
+}
+
+/* 5. Blog List */
+#blogs li {
+	margin-bottom: 20px;
+	list-style: none;
+}
+
+#blogs h3 a {
+	color: #333;
+	text-decoration: none;
+}
+
+#blogs h3 a:hover {
+	text-decoration: underline;
+}
+
+#blogs p {
+	font-size: 0.9em;
+	color: #666;
+}
+
+/* 6. Footer */
+#footer {
+	text-align: center;
+}
+
+#footer a {
+	color: #0077b5;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+/* 7. Responsive Adjustments */
+@media (max-width: 768px) {
+	.hero {
+		flex-direction: column; /* Stack image and text vertically */
+	}
+	#profile-image-hero {
+		margin-right: 0px;
+	}
+}
