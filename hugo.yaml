@@ -1,0 +1,87 @@
+baseURL: "https://tbb3kernel.github.io/"
+title: "Metee Y \\ Turbo 🚀"
+defaultContentLanguage: en
+publishDir: "dist"
+
+module:
+  imports:
+    - path: github.com/adityatelange/hugo-PaperMod
+
+enableInlineShortcodes: true
+params:
+  math: true
+  defaultTheme: light
+
+  profileMode:
+    enabled: true
+    title: "Metee Y \\ Turbo 🚀"
+    subtitle: "AI Software Engineer | Data Practitioner | Building Agentic AI & RAG Systems"
+    imageUrl: "https://placehold.co/400"
+    imageTitle: "Metee Yingyong"
+    buttons:
+      - name: Projects
+        url: "/projects"
+      - name: About
+        url: "/about"
+      - name: Email
+        url: "mailto:metee.ying@gmail.com"
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/metee-yingyong/"
+    - name: email
+      url: "mailto:metee.ying@gmail.com"
+
+  ShowShareButtons: true
+
+  ShowSearch: true
+
+  assets:
+    disableHLJS: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: /posts/
+      weight: 5
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 20
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: "#search"
+      weight: 40
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+  th:
+    languageName: "ไทย"
+    weight: 2
+    title: "Metee Y \\ Turbo 🚀"
+    params:
+      profileMode:
+        enabled: true
+        title: "สวัสดีครับผมชื่อเทอร์โบ"
+        subtitle: "วิศวกรซอฟต์แวร์ AI | นักพัฒนาระบบข้อมูล"
+        buttons:
+          - name: "Projects"
+            url: "/th/projects"
+
+copyright: "© 2026 Metee Yingyong. All rights reserved."
