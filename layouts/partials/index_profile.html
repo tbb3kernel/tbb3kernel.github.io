@@ -20,7 +20,7 @@
         {{ else if .imageWidth }}
         {{- $img = $img.Resize (printf "%dx" .imageWidth) }}
         {{ else }}
-        {{- /* Changed from 150x150 to 600x600 to support high-res profile */ -}}
+        {{- /* Changed from 150x150 to 300x300 to support high-res profile */ -}}
         {{- $img = $img.Resize "300x300" }}
         {{- end }}
         {{- end }}
