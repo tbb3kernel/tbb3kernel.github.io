@@ -21,7 +21,7 @@ body {
 
 /* Profile Mode Adjustments */
 .profile {
-    max-width: 600px !important; /* Increased from default */
+    max-width: 300px !important; /* Reduced from 600px */
     margin: 0 auto;
     padding: 0 20px;
 }
