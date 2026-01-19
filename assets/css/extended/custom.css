@@ -16,7 +16,7 @@ body {
 
 /* Reduce gap between nav and content */
 .main {
-    margin-top: 40px !important; /* Default is often larger */
+    margin-top: 20px !important; /* Default is often larger */
 }
 
 /* Profile Mode Adjustments */

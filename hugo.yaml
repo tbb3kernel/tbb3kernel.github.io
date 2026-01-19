@@ -16,7 +16,7 @@ params:
     enabled: true
     title: "Metee Y \\ Turbo 🚀"
     subtitle: "AI Software Engineer | Data Practitioner | Building Agentic AI & RAG Systems"
-    imageUrl: "https://placehold.co/400"
+    imageUrl: "/images/profile.jpg"
     imageTitle: "Metee Yingyong"
     buttons:
       - name: Projects
