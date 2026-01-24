@@ -33,6 +33,7 @@ params:
       url: "mailto:metee.ying@gmail.com"
 
   ShowShareButtons: true
+  ShowToc: true
 
   ShowSearch: true
 

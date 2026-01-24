@@ -779,4 +779,160 @@ body.dark .search-hint-key {
 
 }
 
+/* =========================================
+   Sidebar TOC Layout
+   ========================================= */
 
+/* Large Screens: Grid Layout */
+@media screen and (min-width: 1200px) {
+    .post-layout-grid {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
+        transition: all 0.3s ease;
+    }
+
+    .post-layout-grid.toc-collapsed {
+        grid-template-columns: 0px minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .post-sidebar {
+        position: sticky;
+        top: 90px;
+        height: max-content;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        padding-right: 20px; /* Moved padding to right */
+        border-right: 1px solid var(--border); /* Moved border to right */
+        transition: opacity 0.2s, visibility 0.2s;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .post-layout-grid.toc-collapsed .post-sidebar {
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+    }
+}
+
+/* Tablet/Mobile: Stacked */
+@media screen and (max-width: 1199px) {
+    .post-layout-grid {
+        display: block;
+    }
+
+    .post-sidebar {
+        margin-bottom: 2rem;
+        background: var(--entry);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        display: none; /* Hidden by default on mobile unless toggled? */
+    }
+
+    /* Logic to show/hide on mobile if desired, or keep as stacked block */
+    .post-layout-grid.toc-mobile-open .post-sidebar {
+        display: block;
+    }
+}
+
+/* Toggle Button */
+#toc-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--secondary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: all 0.2s;
+    font-family: var(--font-family-base);
+}
+
+#toc-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--tertiary);
+}
+
+#toc-toggle.active {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+}
+
+/* General TOC Styling */
+.toc-container {
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+.toc-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+#TableOfContents {
+    /* Reset default list styles */
+}
+
+#TableOfContents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#TableOfContents li {
+    margin-bottom: 6px;
+}
+
+#TableOfContents li a {
+    color: var(--secondary);
+    text-decoration: none;
+    display: block;
+    line-height: 1.4;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    margin-left: -12px; /* Pull back to align border */
+}
+
+#TableOfContents li a:hover,
+#TableOfContents li a.active {
+    color: var(--primary);
+    border-left-color: var(--primary);
+}
+
+/* Nested Levels */
+#TableOfContents ul ul {
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+/* Scrollbar for sidebar */
+.post-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.post-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.post-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.post-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}

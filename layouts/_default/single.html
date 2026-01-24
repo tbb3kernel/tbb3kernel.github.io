@@ -1,0 +1,65 @@
+{{- define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">
+      {{ .Title }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+      {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not .Params.hideMeta }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+    </div>
+    {{- end }}
+    {{- if (.Param "ShowToc") }}
+    <button id="toc-toggle" class="toc-toggle">{{ i18n "toc" }}</button>
+    {{- end }}
+  </header>
+
+  {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" false "isHidden" $isHidden) }}
+
+  <!-- Wrapper for Content + Sidebar -->
+  <div class="post-layout-grid">
+    <!-- Sidebar TOC -->
+    {{- if (.Param "ShowToc") }}
+    <aside class="post-sidebar">
+      <div class="toc-container">
+        <div class="toc-title">{{ i18n "toc" }}</div>
+        {{ .TableOfContents }}
+      </div>
+    </aside>
+    {{- end }}
+
+    <div class="post-content">
+      {{- .Content }}
+    </div>
+  </div>
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    
+    {{- if (.Param "ShowShareButtons") }}
+      {{- partial "share_icons.html" . -}}
+    {{- end }}
+    
+    {{- if (.Param "ShowPostNavLinks") }}
+      {{- partial "post_nav_links.html" . -}}
+    {{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}
+    {{- partial "comments.html" . -}}
+  {{- end }}
+</article>
+{{- end }}
